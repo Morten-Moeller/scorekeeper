@@ -1,0 +1,12 @@
+.Button {
+  border: 0;
+  background-color: steelblue;
+  color: white;
+  padding: 5px 9px;
+  border-radius: 3px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.active {
+  background: tomato;
+}
