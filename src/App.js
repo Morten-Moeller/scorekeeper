@@ -16,8 +16,8 @@ function App() {
       <section className="App__player">
         {players.map((player, index) => (
           <Player
-            onMinus={() => handleMinus(index)}
-            onPlus={() => handlePlus(index)}
+            onMinus={() => updateScore(index, -1)}
+            onPlus={() => updateScore(index, 1)}
             key={player.name}
             name={player.name}
             score={player.score}
@@ -37,20 +37,11 @@ function App() {
     setPlayers(players.map(player => ({ ...player, score: 0 })))
   }
 
-  function handleMinus(index) {
+  function updateScore(index, value) {
     const playerToUpdate = players[index]
     setPlayers([
       ...players.slice(0, index),
-      { ...playerToUpdate, score: playerToUpdate.score - 1 },
-      ...players.slice(index + 1),
-    ])
-  }
-
-  function handlePlus(index) {
-    const playerToUpdate = players[index]
-    setPlayers([
-      ...players.slice(0, index),
-      { ...playerToUpdate, score: playerToUpdate.score + 1 },
+      { ...playerToUpdate, score: playerToUpdate.score + value },
       ...players.slice(index + 1),
     ])
   }
