@@ -2,3 +2,9 @@
   display: flex;
   justify-content: space-between;
 }
+
+.Player__score {
+  display: inline-block;
+  min-width: 3.5ch;
+  text-align: center;
+}

@@ -10,7 +10,7 @@ export default function PlayerForm({ onSubmit }) {
     <form className="PlayerForm" onSubmit={handleSubmit}>
       <label>
         Add player:
-        <input name="name" placeholder="Player name" />
+        <input name="name" placeholder="Player name" maxlength="14" required />
       </label>
     </form>
   )

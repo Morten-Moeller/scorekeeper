@@ -2,34 +2,27 @@ import './Player.css'
 import PropTypes from 'prop-types'
 
 Player.propTypes = {
-  setScore: PropTypes.func,
   score: PropTypes.number,
-  playerName: PropTypes.string,
+  name: PropTypes.string,
+  onMinus: PropTypes.func.isRequired,
+  onPlus: PropTypes.func.isRequired,
 }
 
-export default function Player({ playerName, score, setScore }) {
+export default function Player({ name, score, onPlus, onMinus }) {
   return (
     <section className="Player">
-      <span>{playerName}:</span>
+      <span>{name}:</span>
       <div>
-        <button name="minus" onClick={handleMinus}>
+        <button name="minus" onClick={onMinus}>
           {' '}
           -{' '}
         </button>
-        <span> {score} </span>
-        <button name="plus" onClick={handlePlus}>
+        <span className="Player__score"> {score} </span>
+        <button name="plus" onClick={onPlus}>
           {' '}
           +{' '}
         </button>
       </div>
     </section>
   )
-
-  function handleMinus() {
-    setScore(score--)
-  }
-
-  function handlePlus() {
-    setScore(score++)
-  }
 }

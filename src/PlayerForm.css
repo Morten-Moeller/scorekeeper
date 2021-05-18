@@ -1,4 +1,6 @@
 .PlayerForm label {
+  font-weight: 300;
   display: grid;
   gap: 5px;
+  margin-top: 20px;
 }
