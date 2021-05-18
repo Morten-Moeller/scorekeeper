@@ -12,6 +12,7 @@ function App() {
 
   return (
     <div className="App">
+      <PlayerForm onSubmit={createPlayer} />
       <section className="App__player">
         {players.map((player, index) => (
           <Player
@@ -25,7 +26,6 @@ function App() {
       </section>
       <Button onClick={resetScores}>Reset score</Button>
       <Button onClick={resetAll}>Reset all</Button>
-      <PlayerForm onSubmit={createPlayer} />
     </div>
   )
 
