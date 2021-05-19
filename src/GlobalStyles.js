@@ -8,4 +8,11 @@ export default createGlobalStyle`
 #root {
   font-family: sans-serif;
 }
+
+
+body {
+ display: flex ;
+ justify-content: center;
+ align-items: center;
+}
 `
