@@ -12,4 +12,7 @@ export const DefaultButton = Template.bind({})
 DefaultButton.args = { children: 'Reset scores', isActive: false }
 
 export const AktiveButton = Template.bind({})
-AktiveButton.args = { children: 'Reset scores', isActive: true }
+AktiveButton.args = {
+  children: 'Reset scores',
+  isActive: true,
+}

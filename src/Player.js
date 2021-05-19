@@ -1,5 +1,5 @@
-import './Player.css'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
 Player.propTypes = {
   score: PropTypes.number,
@@ -10,8 +10,8 @@ Player.propTypes = {
 
 export default function Player({ name, score, onPlus, onMinus }) {
   return (
-    <section className="Player">
-      <span>{name}:</span>
+    <Wrapper>
+      <span>{name}</span>
       <div>
         <button name="minus" onClick={onMinus}>
           {' '}
@@ -23,6 +23,18 @@ export default function Player({ name, score, onPlus, onMinus }) {
           +{' '}
         </button>
       </div>
-    </section>
+    </Wrapper>
   )
 }
+
+const Wrapper = styled.section`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+
+  span {
+    display: inline-block;
+    min-width: 3.5ch;
+    text-align: center;
+  }
+`

@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import './App.css'
 import Button from './Button'
 import Player from './Player'
 import PlayerForm from './PlayerForm'
+import styled from 'styled-components'
 
 function App() {
   const [players, setPlayers] = useState([
@@ -11,9 +11,9 @@ function App() {
   ])
 
   return (
-    <div className="App">
+    <Wrapper>
       <PlayerForm onSubmit={createPlayer} />
-      <section className="App__player">
+      <section>
         {players.map((player, index) => (
           <Player
             onMinus={() => updateScore(index, -1)}
@@ -24,9 +24,11 @@ function App() {
           />
         ))}
       </section>
-      <Button onClick={resetScores}>Reset score</Button>
+      <Button isActive onClick={resetScores}>
+        Reset score
+      </Button>
       <Button onClick={resetAll}>Reset all</Button>
-    </div>
+    </Wrapper>
   )
 
   function resetAll() {
@@ -50,5 +52,22 @@ function App() {
     setPlayers([...players, { name, score: 0 }])
   }
 }
+
+const Wrapper = styled.section`
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  width: 270px;
+  border: 5px solid steelblue;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  align-self: center;
+
+  section {
+    margin-bottom: 10px;
+  }
+`
 
 export default App
