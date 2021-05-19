@@ -16,4 +16,21 @@ describe('Button', () => {
     userEvent.click(button)
     expect(handleOnClick).toHaveBeenCalled()
   })
+
+  it('changes color on isActive', () => {
+    const { rerender } = render(<Button onClick={jest.fn()}>Click Me</Button>)
+
+    const button = screen.getByRole('button')
+
+    const defaultStyle = getComputedStyle(button)
+
+    rerender(
+      <Button isActive onClick={jest.fn()}>
+        Click Me
+      </Button>
+    )
+
+    const activeStyle = getComputedStyle(button)
+    expect(activeStyle).not.toBe(defaultStyle)
+  })
 })
